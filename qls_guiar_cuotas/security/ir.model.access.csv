@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+qls_indice,ABM indice,model_qls_indice,qls_guiar_cuotas.group_plan_pagos,1,1,1,1
+qls_indice_periodo,ABM indice periodo,model_qls_indice_periodo,qls_guiar_cuotas.group_plan_pagos,1,1,1,1

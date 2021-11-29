@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="qls_sale_order_view" model="ir.ui.view">
+            <field name="name">sale.order.view.qls</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button name="calculate_indice_deuda" string="Calcular deuda del indice"
+                            type="object" class="btn-primary"
+                            attrs="{'invisible':[('state','!=', 'sale')]}"
+
+                    />
+                </xpath>
+                <xpath expr="//group[1]" position="after">
+                    <hr class="mb4 mt4"/>
+                    <group string="Plan de pagos">
+                        <group>
+                            <field name="cuotas"/>
+                            <field name="vencimiento_primer_cuota"/>
+                            <field name="type_periodo"/>
+                            <field name="periocidad"/>
+                            <field name="coeficiente_id"/>
+                        </group>
+                        <group>
+                            <field name="anticipo"/>
+                            <field name="vencimiento_anticipo" attrs="{'invisible':[('anticipo','=', False)]}"/>
+                            <field name="valor_anticipo" attrs="{'invisible':[('anticipo','=', False)]}"/>
+
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

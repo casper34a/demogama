@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="qls_indice_tree_view" model="ir.ui.view">
+            <field name="name">qls.indice.tree</field>
+            <field name="model">qls.indice</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="qls_indice_form_view" model="ir.ui.view">
+            <field name="name">qls.indice.form</field>
+            <field name="model">qls.indice</field>
+            <field name="arch" type="xml">
+                <form string="Indice">
+                    <sheet>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1>
+                                    <label for="name"/>
+                                    <field name="name"/>
+                                </h1>
+                            </div>
+
+                        </div>
+                        <notebook>
+                            <page string="Coeficientes por periodo">
+                                <field name="periodo_ids" />
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="qls_indice_action_view">
+            <field name="name">Indices</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">qls.indice</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Gestión de <strong>Indices.</strong>.
+                </p>
+            </field>
+        </record>
+
+
+        <record id="qls_indice_periodo_tree_view" model="ir.ui.view">
+            <field name="name">qls.indice.periodo.tree</field>
+            <field name="model">qls.indice.periodo</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="indice_id"/>
+                    <field name="anio"/>
+                    <field name="mes"/>
+                    <field name="base"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="qls_indice_periodo_form_view" model="ir.ui.view">
+            <field name="name">qls.indice.periodo.form</field>
+            <field name="model">qls.indice.periodo</field>
+            <field name="arch" type="xml">
+                <form string="Indice periodos">
+                    <sheet>
+
+                        <div class="row" hidden="True">
+                            <div class="col-md-6">
+
+                            </div>
+                            <div class="col-md-6">
+                                <h1>
+                                    <label for="name"/>
+                                    <br></br>
+                                    <field name="name"/>
+                                </h1>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-2">
+                                <h1>
+                                    <label for="anio"/>
+                                    <br></br>
+                                    <field name="anio"/>
+                                </h1>
+                            </div>
+                            <div class="col-md-2">
+                                <h1>
+                                    <label for="mes"/>
+                                    <br></br>
+                                    <field name="mes"/>
+                                </h1>
+                            </div>
+
+                            <div class="col-md-8"></div>
+                        </div>
+                        <div class="card bg-light p-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h1>
+                                        <label for="indice_id"/>
+                                        <br></br>
+                                        <field name="indice_id" options="{'no_create': True}"/>
+                                    </h1>
+                                </div>
+                                <div class="col-md-3">
+                                    <h1>
+                                        <label for="base"/>
+                                        <br></br>
+                                        <field name="base"/>
+                                    </h1>
+                                </div>
+                                <div class="col-md-3">
+                                    <h1>
+                                        <label for="porcentaje_variacion"/>
+                                        <br></br>
+                                        %
+                                        <field name="porcentaje_variacion"/>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="qls_indice_periodo_action_view">
+            <field name="name">Indices periodos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">qls.indice.periodo</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Gestión de <strong>Indices periodo.</strong>.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="qls_indice_principal_menu" parent="sale.sale_menu_root"
+                  name="Indices"/>
+
+        <menuitem id="qls_indice_submenu"
+                  parent="qls_indice_principal_menu"
+                  action="qls_indice_action_view"
+                  sequence="2"
+                  name="Indices"/>
+
+        <menuitem id="qls_indice_periodo_submenu"
+                  parent="qls_indice_principal_menu"
+                  action="qls_indice_periodo_action_view"
+                  sequence="1"
+                  name="Indices periodos"/>
+
+    </data>
+</odoo>

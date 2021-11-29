@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="sale_advance_payment_form" model="ir.ui.view">
+        <field name="name">sale.advance.payment.inv.form</field>
+        <field name="model">sale.advance.payment.inv</field>
+        <field name="inherit_id" ref="sale.view_sale_advance_payment_inv"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='advance_payment_method']" position="after">
+                <field name="journal_add_id" attrs="{'invisible':[('advance_payment_method','!=','quotes_plan')],
+                                                     'required' :[('advance_payment_method','=','quotes_plan')]}"/>
+
+            </xpath>
+        </field>
+    </record>
+</odoo>
