@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- FORMVIEW -->
+    <record id="view_automatic_interests_company_form_qls" model="ir.ui.view">
+        <field name="name">automatic_interests.company.form.qls</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='interest_ids']" position="before">
+                <group>
+                    <group><field name="jorunal_interes_id"/></group>
+                    <group></group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

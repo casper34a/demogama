@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="qls_invoiced_orders_view" model="ir.ui.view">
+            <field name="name">Res Config QLS</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="Plan de pagos" string="Plan de pagos" data-key="qls.indice">
+
+                            <h2>Productos plan de pagos</h2>
+                            <div class="col-12 col-lg-6 o_setting_box"
+                                 title="These taxes are set in any new product created.">
+                                <div class="o_setting_left_pane">
+                                    <group>
+                                        <group>
+                                            <field name="product_quote_id"/>
+                                            <field name="product_indice_id"/>
+                                        </group>
+                                    </group>
+                                </div>
+                            </div>
+
+                    </div>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

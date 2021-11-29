@@ -1,0 +1,14 @@
+[submodule "ingadhoc/account-payment"]
+	path = ingadhoc/account-payment
+	url = https://github.com/ingadhoc/account-payment.git
+	branch = 13.0
+
+[submodule "ingadhoc/account-financial-tools"]
+	path = ingadhoc/account-financial-tools
+	url = https://github.com/ingadhoc/account-financial-tools.git
+	branch = 13.0
+
+[submodule "ingadhoc/odoo-argentina"]
+	path = ingadhoc/odoo-argentina
+	url = https://github.com/ingadhoc/odoo-argentina.git
+	branch = 13.0

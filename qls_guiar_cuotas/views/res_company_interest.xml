@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- FORMVIEW -->
+    <record id="view_kinesis_athletics_company_form" model="ir.ui.view">
+        <field name="name">kinesis_athletics.company.form</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="account_interests.view_kinesis_athletics_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='interest_ids']//form//group//group[2]//field[@name='rate']" position="after">
+                <field name="quote_interest"/>
+            </xpath>
+
+            <xpath expr="//field[@name='interest_ids']//form//group//field[@name='domain']" position="attributes">
+                <field name="quote_interest" invisible="1"/>
+                <attribute name="attrs">{'invisible':[('quote_interest', '=', True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='interest_ids']//form//group//field[@name='receivable_account_ids']" position="attributes">
+                <field name="quote_interest" invisible="1"/>
+                <attribute name="attrs">{'required':[('quote_interest', '=', False)]}</attribute>
+            </xpath>
+
+
+        </field>
+    </record>
+</odoo>
